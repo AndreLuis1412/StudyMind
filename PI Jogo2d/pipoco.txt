@@ -1,0 +1,52 @@
+//poupicos
+struct Projeteis {
+int id, x, y, velocidade;
+bool onFire;
+};
+int NUM_BALAS = 1; //quantidade de muinicoes na tela
+struct Projeteis pipoco[3];
+
+void balas(struct Projeteis pipoco[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        pipoco[i].id = projetil;
+        pipoco[i].velocidade = 5;
+        pipoco[i].ativo = false;
+
+    }
+}
+
+void atira(struct Projeteis pipoco[], int tamanho, struct Boneco ze) {
+    for (int i = 0; i < tamanho; i++) {
+        if (!balas[i].ativo) {
+            pipoco[i].x = ze.pos_x + 4;
+            pipoco[i].y = ze.pos_y;
+            pipoco[i].ativo = true;
+            break; 
+        }
+    }
+}
+
+void atualizarBalas(struct Projeteis pipoco[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (pipoco[i].ativo) {
+            pipoco[i].x += pipoco[i].velocidade;
+
+            //if (pipoco[i].x > largura da tela)
+        }
+    }
+}
+
+void DesenhaBalas(struct Projeteis pipoco[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (pipoco[i].ativo) {
+            al_draw_filled_rectangle(pipoco[i].x, pipoco[i].y, pipoco[i].x + 4,
+                pipoco[i].y + 2, al_map_rgb(255, 255, 255), 3.0);
+        }
+    }
+}
+
+
+
+
+    //ALLEGRO_BITMAP* pipoco = al_load_bitmap(". / pipoco.jpg");//pipoco
+
